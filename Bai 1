@@ -1,0 +1,33 @@
+/**
+   giai phuong trinh:
+        x-2^-x=0 for(0<=x<=1),e=10^-5      
+**/      
+#include<stdio.h>
+#include<math.h>
+ double f(double x);
+ double Giaiphuongtrinh();
+ 
+ int main(){
+ 	double a=0,b=1,e=0.00001,x;
+ 	printf("Giai phuong trinh x-2^-x=0");
+ 	x=Giaiphuongtrinh();
+ 	printf("\nx=%lf",x);
+ }
+ 
+ double f(double x){
+ 	return x-pow(2,-x);
+ }
+ 
+ double Giaiphuongtrinh(){
+ 	double x;
+ 	double a=0,b=1,e=0.00001;
+ 	while(b-a>=e){
+ 		x=(b+a)/2;
+ 		if(f(a)*f(x)>0){
+ 			a=x;
+		 }else{
+		 	b=x;
+		 }
+	 }
+	 return (a+b)/2;
+ } 
